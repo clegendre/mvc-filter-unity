@@ -39,13 +39,8 @@ namespace CK.Web.Mvc.Tests
         {
             var u = new UnityContainer();
 
-            u.RegisterType<IControllerActivator, UnityControllerActivator>();
             u.RegisterType<UnityFilterProvider>( new ContainerControlledLifetimeManager() );
             u.RegisterType<UnityFilterAttributeFilterProvider>( new ContainerControlledLifetimeManager() );
-
-
-            UnityDependencyResolver d = new UnityDependencyResolver( u );
-            DependencyResolver.SetResolver( d );
 
             return u;
         }
